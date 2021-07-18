@@ -55,6 +55,33 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGBLED_NUM 12    // Number of LEDs
 */
 
+//#define USE_SERIAL
+//#define SOFT_SERIAL_PIN D2
+
+/* ws2812 RGB LED */
+#define RGB_DI_PIN      D3
+
+#ifdef RGBLIGHT_ENABLE
+#    define RGBLED_NUM 12 // Number of LEDs
+#    define RGBLED_SPLIT \
+        { 6, 6 }
+#    define RGBLIGHT_SPLIT
+#    define RGBLIGHT_LED_MAP { 0,  1,  2,  3,  4,  5, \
+                              11, 10,  9,  8,  7,  6 }
+#    define RGBLIGHT_ANIMATIONS
+#    define RGBLIGHT_MAXIMUM_BRIGHTNESS 120
+#endif
+
+#ifdef RGB_MATRIX_ENABLE
+#    define RGBLED_NUM       44 // Number of LEDs
+#    define DRIVER_LED_TOTAL RGBLED_NUM
+#    define RGB_MATRIX_SPLIT \
+        { 22, 22 }
+#    define SPLIT_TRANSPORT_MIRROR
+#    define RGB_MATRIX_ANIMATIONS
+#    define RGB_MATRIX_MAXIMUM_BRIGHTNESS 120
+#endif
+
 /*
  * Feature disable options
  *  These options are also useful to firmware size reduction.
